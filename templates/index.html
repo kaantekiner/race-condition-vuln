@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <title>kupon servisi</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<br><br>
+<h2 id="yazi1">kupon kullanma servisi!!!</h2>
+<p id="yazi2">her tıklamada sadece 1 kupon kullanırsınız. En fazla {{kupon_hakki}} kupon kullanma hakkınız var...</p>
+<p id="demo">Bir çok kuponunuz var(tam {{kupon_hakki}} tane)! hemen kullanabilirsiniz......</p>
+<button onclick="myFunction()">kupon kullan</button>
+
+<script type=text/javascript>
+    function myFunction(){
+        $.ajax
+        ({
+            url: "kupon_kullan",
+            type: "GET",
+            success: function (result)
+            {document.getElementById("demo").innerHTML = result;},
+            error: function (error)
+            {document.getElementById("demo").innerHTML = result + " " + error;}
+        });
+    }
+</script>
+</body>
+</html>
+
